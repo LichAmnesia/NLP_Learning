@@ -2,7 +2,7 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-08-25 00:29:27
-# @Last Modified time: 2016-08-25 09:11:01
+# @Last Modified time: 2016-08-25 23:42:11
 # @FileName: Simple_tokenization.py
 
 import nltk
@@ -14,10 +14,22 @@ else:
     nltk.data.path.append("/home/vagrant/Project/nltk_data")
 
 # open txt file and make every line to array
-lines = [line.strip('\n') for line in open("wsj-short.txt")]
-print lines[0]
 
-l = lines[0]
-print(re.split('[,. ]+', l))
+# [  ['The','company'   ]   ['This', 'company'    ]]
+lines = [line.strip() for line in open("wsj-short.txt")]
+line = []
+'''
+num = 0
+for l in lines:
+    num += len(re.findall("[\w']+|[.,!?;]+", l))
+print(num)
+'''
 
-print(re.findall("[\w]+|[.,;!]+", l))
+# for problem 7
+num = 0
+for ll in lines:
+    num = num + len(re.findall("(Jan\.)|(Feb\.)|(Mar\.)|(Apr\.)|(Jun\.)|(Jul\.)|(Aug\.)|(Sept\.)|(Oct\.)|(Nov\.)|(Dec\.)|([\w']+|[.,!?;]+)", ll))
+print(num)
+
+# print(re.findall("[\w']+|[.,!?;]+", line))
+# print lines[0]

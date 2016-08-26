@@ -2,11 +2,18 @@
 # @Author: Lich_Amnesia
 # @Email: alwaysxiaop@gmail.com
 # @Date:   2016-08-24 23:53:57
-# @Last Modified time: 2016-08-25 00:25:29
+# @Last Modified time: 2016-08-25 14:30:47
 # @FileName: test.py
 
 import nltk
-nltk.data.path.append("/home/vagrant/Project/nltk_data")
+# nltk.data.path.append("/home/vagrant/Project/nltk_data")
+import platform
+import re
+if (platform.system() == 'Windows'):
+    nltk.data.path.append("D:\Work\Judge\Project\\nltk_data")
+else:
+    nltk.data.path.append("/home/vagrant/Project/nltk_data")
+
 
 # define a sentence
 sentence = """At eight o'clock on Thuesday evening,
